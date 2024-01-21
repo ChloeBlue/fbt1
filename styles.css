@@ -1,0 +1,146 @@
+
+body {
+  background: linear-gradient(295deg, rgba(3,1,49,1) 0%, rgba(9,9,121,1) 21%, rgba(40,76,95,1) 61%, rgba(2,0,36,1) 100%);
+}
+
+h1 {
+  font-family: 'Salsa', cursive;
+  color: #FAEF9B;
+  font-size: 70px;
+  margin: 20px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Salsa', cursive;
+  color: #FAEF9B;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: #FF9800;
+  font-size: 1.3em;
+}
+
+.content {
+  margin: 50px 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.spin{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.wheel {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background: #064635;
+  box-shadow: 0 0 3px 5px #064635,
+  0 0 0 10px white,
+  0 0 0 15px #16003B;
+  overflow: hidden;
+  transition: transform 8s ease-in-out;
+}
+
+.prize {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: var(--clr);
+  transform-origin: bottom right;
+  transform: rotate(calc(60deg * var(--i)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, 72% 0, 100% 100%, 0 72%);
+  font-family: 'roboto', cursive;
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px #413F42;
+  color: #16003B;
+}
+
+p {
+  position: relative;
+  font-size: 1em;
+  transform: rotate(40deg);
+  text-align: center;
+}
+
+.spinBtn {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  background: #16003B;
+  position: absolute;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playball', cursive;
+  color: white;
+  text-shadow: 1px 1px 4px #fff;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  z-index: 5;
+  box-shadow: 0 0 4px 3px #4B56D2;
+}
+
+.spinBtn::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  height: 30px;
+  width: 40px;
+  background: #16003B;
+  clip-path: polygon(50% 0%, 30% 100%, 70% 100%);
+}
+
+.sectionTitle{
+  width: 30px;
+  margin: 30px 30px;
+  cursor: pointer;
+}
+
+.win {
+  font-family: 'Lemon', san-serif;
+  font-size: 80px;
+  color: #D4E7C5;
+}
+
+#gameboard {
+  width: 500px;
+  padding-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 50px;
+}
+
+.box {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(0deg, rgba(254,255,57,1) 0%, rgba(255,255,255,1) 100%);
+  font-size: 50px;
+  margin: 0.5rem;
+  box-shadow: 2px 5px 5px #000;
+  border-radius: 5px;
+}
+
+.success {
+  color: #EF4040;
+}
+
+.completeLine {
+  background: linear-gradient(0deg, rgba(254,255,57,1) 0%, rgba(182,55,0,1) 100%);
+}
