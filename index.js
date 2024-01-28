@@ -1,75 +1,50 @@
 
-var winningCombination = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
+const questionbank = [];
+  questionbank[1] = "question1";
+  questionbank[2] = "question2";
+  questionbank[3] = "question3";
+  questionbank[4] = "question4";
+  questionbank[5] = "question5";
+  questionbank[6] = "question6";
 
-var winningCombination2 = [];
+let value = 360;
 
-$(".box").on("click",function(){
-
-  // if (this.innerHTML.trim()=="") {
-      this.innerHTML = "<img src='Icon/stamp.png' alt=''>"
-  // }
-  // else {
-  //     this.innerHTML = ""
-  // }
-
-  if (matchWin()) {
-    if ($("#F").hasClass("success") && $("#B").hasClass("success") && !$("#T").hasClass("success")) {
-      $("#T").addClass("success");
-    }
-    else if ($("#F").hasClass("success") && !($("#B").hasClass("success"))) {
-      $("#B").addClass("success");
-    }
-    else {
-      $("#F").addClass("success");
-    }
-  };
-
-  function matchWin() {
-    return winningCombination.some(combination => {
-      let ite = 0;
-      combination.forEach(index => {
-        if ($(".box")[index].innerHTML !== "") ite++;
-      })
-
-      if (ite==3) {
-        let done = winningCombination.indexOf(combination);
-        winningCombination2.push(winningCombination[done]);
-        winningCombination.splice(done,1);
-        $("#" + combination[0]).addClass("completeLine");
-        $("#" + combination[1]).addClass("completeLine");
-        $("#" + combination[2]).addClass("completeLine");
-      }
-
-      return combination.every(index => {
-        return $(".box")[index].innerHTML !== ""
-      })
-    })
-  }
-  console.log(winningCombination2);
-})
-
-let value = Math.ceil(Math.random()*1000);
 $(".spinBtn").on("click",function(){
+  value += Math.ceil(Math.random()*3600)*2;
+
   $(".wheel").css("transform", "rotate(" + value + "deg)");
-  value += Math.ceil(Math.random()*1000);
+
+  while (value >= 360) {
+    value = value -360;
+  }
+
+  setTimeout(() => {
+    if (value > 315 || value <= 15) {
+      $(".question").text(questionbank[1]);
+    }
+    else if (value > 255 && value <= 315) {
+      $(".question").text(questionbank[2]);
+    }
+    else if (value > 195 && value <= 255) {
+      $(".question").text(questionbank[3]);
+    }
+    else if (value > 135 && value <= 195) {
+      $(".question").text(questionbank[4]);
+    }
+    else if (value > 75 && value <= 135) {
+      $(".question").text(questionbank[5]);
+    }
+    else if (value > 15 && value <= 75) {
+      $(".question").text(questionbank[6]);
+    }
+
+  }, 8000)
+
 })
 
-$(".sectionTitle").on("click",function() {
-  for (let b = 0; b < winningCombination2.length; b++) {
-    winningCombination.push(winningCombination2[b]);
-  };
-  $(".box").html("");
-  $(".box").removeClass("completeLine");
-  $("#F").removeClass("success");
-  $("#B").removeClass("success");
-  $("#T").removeClass("success");
-})
+
+for (let i=1; i<7; i++) {
+  $("#q" + i).on("click",function(){
+    $(".question").text(questionbank[i]);
+  })
+}
