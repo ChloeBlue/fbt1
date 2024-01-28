@@ -1,21 +1,15 @@
 
 body {
   background: linear-gradient(295deg, rgba(3,1,49,1) 0%, rgba(9,9,121,1) 21%, rgba(40,76,95,1) 61%, rgba(2,0,36,1) 100%);
+  height: 100vh;
 }
 
-h1 {
+.title {
   font-family: 'Salsa', cursive;
   color: #FAEF9B;
-  font-size: 70px;
-  margin: 20px 20px;
+  font-size:4vw;
+  margin: 1vw 5vw;
   text-align: center;
-}
-
-h2 {
-  font-family: 'Salsa', cursive;
-  color: #FAEF9B;
-  font-size: 40px;
-  margin-bottom: 0;
 }
 
 .highlight {
@@ -24,30 +18,40 @@ h2 {
 }
 
 .content {
-  margin: 50px 50px;
-  align-items: center;
-  justify-content: center;
+  display:flex;
+  flex-direction: row;
+  margin: 2em 5em;
 }
 
 .spin{
   display: flex;
   align-items:center;
   justify-content: center;
-  margin-right: 50px;
+  height: 30vw;
+  width: 50vw;
+  position: relative;
+  /* margin-left: 5em; */
+  /* margin: 20vh; */
 }
 
 .wheel {
   position: relative;
-  height: 400px;
-  width: 400px;
+  height: 25vw;
+  width: 25vw;
   border-radius: 50%;
   background: #064635;
   box-shadow: 0 0 3px 5px #064635,
-  0 0 0 10px white,
-  0 0 0 15px #16003B;
+  0 0 0 0.5em white,
+  0 0 0 0.8em #16003B;
   overflow: hidden;
   transition: transform 8s ease-in-out;
+  transform: rotate(-15deg);
 }
+
+/* .wheel::after {
+  display: block;
+  position: absolute;
+} */
 
 .prize {
   position: absolute;
@@ -64,18 +68,19 @@ h2 {
   font-weight: bolder;
   text-shadow: 2px 2px 4px #413F42;
   color: #16003B;
+  cursor: pointer;
 }
 
 p {
   position: relative;
-  font-size: 1em;
+  font-size: 1.2vw;
   transform: rotate(40deg);
   text-align: center;
 }
 
 .spinBtn {
-  height: 65px;
-  width: 65px;
+  height: 5vw;
+  width: 5vw;
   border-radius: 50%;
   background: #16003B;
   position: absolute;
@@ -83,6 +88,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3vw;
   font-family: 'Playball', cursive;
   color: white;
   text-shadow: 1px 1px 4px #fff;
@@ -95,52 +101,38 @@ p {
 .spinBtn::before {
   content: "";
   position: absolute;
-  top: -25px;
-  height: 30px;
-  width: 40px;
+  top: -2vw;
+  height: 3vw;
+  width: 5vw;
   background: #16003B;
   clip-path: polygon(50% 0%, 30% 100%, 70% 100%);
 }
 
-.sectionTitle{
-  width: 30px;
-  margin: 30px 30px;
-  cursor: pointer;
-}
-
-.win {
-  font-family: 'Lemon', san-serif;
-  font-size: 80px;
-  color: #D4E7C5;
-}
-
-#gameboard {
-  width: 500px;
-  padding-right: 100px;
+.questionDisplay {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  border-radius: 50px;
+  flex-direction: column;
+}
+
+.sectionTitle{
+  font-size: 3vw;
+  padding: 1vw 1vw;
+  font-family: 'Salsa', cursive;
+  color: #FAEF9B;
 }
 
 .box {
-  height: 90px;
-  width: 90px;
-  display: flex;
+  font-family: 'Lemon', san-serif;
+  font-size: 2.5vw;
+  background-color: #fff;
+  width: 40vw;
+  height: 20vw;
+  box-shadow: 0 0 3px 5px #FDE767;
+  overflow-wrap: break-word;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(0deg, rgba(254,255,57,1) 0%, rgba(255,255,255,1) 100%);
-  font-size: 50px;
-  margin: 0.5rem;
-  box-shadow: 2px 5px 5px #000;
-  border-radius: 5px;
 }
 
-.success {
-  color: #EF4040;
-}
-
-.completeLine {
-  background: linear-gradient(0deg, rgba(254,255,57,1) 0%, rgba(182,55,0,1) 100%);
+.question {
+  margin: 1em 1em;
+  text-align: center;
 }
